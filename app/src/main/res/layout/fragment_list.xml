@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <!--    This view will be binded to the viewModel, supporting two-way binding-->
+    <data>
+
+        <import type="com.example.assignment2.view.CatListView" />
+
+        <variable
+            name="listViewModel"
+            type="com.example.assignment2.view.CatListView" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        tools:context=".fragment.ListFragment">
+
+        <!--  Binding imageUrl in the viewModel and also with the Binding Adapter-->
+        <ImageView
+            android:id="@+id/cat_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{listViewModel.imageUrl}"
+            app:layout_constraintBottom_toTopOf="@+id/cat_name"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cat_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/cat_name"
+            android:textColor="@color/headerColor"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cat_image" />
+
+        <!--  binding like button with the  likeCatClicked() in the viewModel-->
+        <Button
+            android:id="@+id/like_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="36dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/like"
+            android:onClick="@{() -> listViewModel.likeCatClicked()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dislike_button"
+            app:layout_constraintTop_toBottomOf="@+id/like_score" />
+
+        <!--  binding like button with the  dislikeCatClicked() in the viewModel-->
+        <Button
+            android:id="@+id/dislike_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/unlike"
+            android:onClick="@{() -> listViewModel.dislikeCatClicked()}"
+            app:layout_constraintEnd_toStartOf="@+id/like_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dislike_score" />
+
+        <TextView
+            android:id="@+id/dislike_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/headerColor"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/like_score"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cat_name" />
+
+        <TextView
+            android:id="@+id/like_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="89dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="28dp"
+            android:textColor="@color/headerColor"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dislike_score"
+            app:layout_constraintTop_toBottomOf="@+id/cat_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

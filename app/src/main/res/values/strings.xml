@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="app_name">Cat-liker</string>
+    <string name="start_fragment_heading">You can rate cats now</string>
+    <string name="start_fragment_instructions">Tap the button to start</string>
+    <string name="start_button_label">Start</string>
+    <string name="reminder_message">Remember to be polite!</string>
+    <string name="list_fragment_instructions">"How's the cat?"</string>
+    <string name="cat_name">Cat Name</string>
+    <string name="cute_button_label">Cute</string>
+    <string name="not_cute_button_label">Not Cute</string>
+    <string name="cute_score">score: %d</string>
+    <string name="final_message">We look cute but we are deadly! purrrrr…</string>
+    <string name="Name">John Doe</string>
+    <string name="help">Help?</string>
+    <string name="start_over">See them again?</string>
+
+</resources>
